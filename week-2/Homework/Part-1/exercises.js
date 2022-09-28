@@ -15,6 +15,10 @@
  */
 function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
+  content.innerHTML = arrayOfPeople.map(person => `
+      <h1>${person.name}</h1>
+      <h2>${person.job}</h2>
+      `).join("")
 }
 
 /**
@@ -26,6 +30,11 @@ function exerciseOne(arrayOfPeople) {
  */
 function exerciseTwo(shopping) {
   //Write your code in here
+  let content = document.querySelector("#content");
+  let list = document.createElement("ul");
+  content.appendChild(list);
+
+  list.innerHTML = shopping.map(product => `<li>${product}</li>`).join("")
 }
 
 /**
@@ -57,9 +66,42 @@ function exerciseTwo(shopping) {
 
     The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
+
 function exerciseThree(books) {
-  //Write your code in here
+  let content = document.querySelector("#content");
+
+  let heading = document.createElement("h1");
+  heading.innerText = "Book List";
+
+  let list = document.createElement("ul");
+  list.style.listStyle = "none";
+  list.style.display = "flex";
+  list.style.justifyContent = "space-between";
+
+  content.append(heading, list);
+
+  books[0].image = "../Part-1/1.jpeg"
+  books[1].image = "../Part-1/2.jpeg"
+  books[2].image = "../Part-1/3.jpeg"
+
+  list.innerHTML = books.map((book) => {
+    if (book.alreadyRead) {
+      return `
+      <li style="background-color: green; width: 30%">
+        <p style="text-align: center">${book.title} - ${book.author}</p> 
+        <img style="padding: 10px" src=${book.image}>
+      </li>`
+    } else {
+      return `
+    <li style="background-color: red; width: 30%"">
+      <p style="text-align: center">${book.title} - ${book.author}</p> 
+      <img style="padding: 10px" src=${book.image}>
+    </li>`
+    }
+  }).join("");
 }
+
+
 
 //
 //
@@ -71,10 +113,18 @@ function exerciseThree(books) {
 //
 //
 
-let people = [
-  { name: "Chris", job: "Teacher" },
-  { name: "Joanna", job: "Student" },
-  { name: "Boris", job: "Prime Minister" }
+let people = [{
+    name: "Chris",
+    job: "Teacher"
+  },
+  {
+    name: "Joanna",
+    job: "Student"
+  },
+  {
+    name: "Boris",
+    job: "Prime Minister"
+  }
 ];
 
 exerciseOne(people);
@@ -83,8 +133,7 @@ let shopping = ["Milk", "Break", "Eggs", "A Dinosaur", "Cake", "Sugar", "Tea"];
 
 exerciseTwo(shopping);
 
-const books = [
-  {
+const books = [{
     title: "The Design of Everyday Things",
     author: "Don Norman",
     alreadyRead: false
