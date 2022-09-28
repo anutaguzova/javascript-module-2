@@ -39,6 +39,11 @@ var writers = [
   },
 ];
 
+
+let result = writers.map(el => console.log(`Hi, my name is ${el.firstName} ${el.lastName}. I am ${el.age} years old, and work as a ${el.occupation}.`))
+
 /*
 If you want an extra challenge, only `console.log()` the writers that are alive.
 */
+
+let aliveWriters = writers.filter(el => el.alive == true).map(el => console.log(`Hi, my name is ${el.firstName} ${el.lastName}. I am ${el.age} years old, and work as a ${el.occupation}.`))

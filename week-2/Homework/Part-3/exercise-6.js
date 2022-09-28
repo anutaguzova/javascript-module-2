@@ -41,21 +41,19 @@ function removeSkill(mentors,newSkill){
 function addStudentLikes(mentors){
   //your code here
 }
-*/ 
+*/
 
-var mentors = [
-  {
+var mentors = [{
     firstName: "Antonio",
     lastName: "Miranda",
-    skills: ["JS","React","Node"],
+    skills: ["JS", "React", "Node"],
     class: "Mar1",
     studentLikes: 0,
-    job:
-      {
-        company: "Google",
-        position: "Senior developer",
-        city: "Barcelona"
-      }
+    job: {
+      company: "Google",
+      position: "Senior developer",
+      city: "Barcelona"
+    }
   },
   {
     firstName: "Leo",
@@ -63,41 +61,101 @@ var mentors = [
     skills: ["Play football"],
     class: "Mar3",
     studentLikes: 0,
-    job:
-      {
-        company: "FC Barcelona",
-        position: "Player",
-        city: "Barcelona"
-      }
+    job: {
+      company: "FC Barcelona",
+      position: "Player",
+      city: "Barcelona"
+    }
   },
   {
     firstName: "John",
     lastName: "VanDamme",
-    skills: ["React","Angular","Python","Node"],
+    skills: ["React", "Angular", "Python", "Node"],
     class: "Mar4",
     studentLikes: 0,
-    job:
-      {
-        company: "Facebook",
-        position: "Software Manager",
-        city: "Chicago"
-      }
-  },  
+    job: {
+      company: "Facebook",
+      position: "Software Manager",
+      city: "Chicago"
+    }
+  },
   {
     firstName: "Giorgio",
     lastName: "Polvara",
-    skills: ["HTML","JS","React"],
+    skills: ["HTML", "JS", "React"],
     class: "Mar2",
     studentLikes: 0,
-    job:
-      {
-        company: "Amazon",
-        position: "Senior developer",
-        city: "Barcelona"
-      }
+    job: {
+      company: "Amazon",
+      position: "Senior developer",
+      city: "Barcelona"
+    }
   },
 
 ];
 
 //YOUR CODE HERE
+// task 1
+mentors.forEach(el => {
+  if (el.job.city === "Barcelona" && el.skills.includes("React")) {
+    console.log(`Hi, my name is ${el.firstName} ${el.lastName}. I work in Barcelona and i know React.`)
+  }
+})
 
+// task 2
+mentors.forEach(mentor => {
+  if (mentor.job.city === "Barcelona") {
+    mentor.class = "Jun1";
+    mentor.skills.push("SQL");
+  };
+})
+
+// task 3
+mentors.map(mentor => mentor.addSkill = (newSkill) => mentor.skills.push(newSkill))
+
+// task 4
+function addSkill(mentors, newSkill) {
+  mentors.map(mentor => mentor.skills.push(newSkill))
+  return mentors
+}
+
+// task 5
+function removeSkill(mentors, newSkill) {
+  mentors.map(mentor => mentor.skills.splice(mentor.skills.indexOf(newSkill), 1))
+  return mentors
+}
+
+// task 6
+function mentorWithMoreSkills() {
+  let max = 0;
+  let name = [];
+  for (let i = 0; i < mentors.length; i++) {
+    if (mentors[i].skills.length >= max) {
+      max = mentors[i].skills.length;
+      name.push(mentors[i].firstName);
+
+    }
+  }
+
+  return name.join(", ") + " has " + max + " skills! it is a maximum"
+
+}
+
+// task 7
+mentors.map(mentor => mentor.addStudentLikes = () => mentor.studentLikes += 1)
+
+// task 8
+function addStudentLikes(mentors) {
+  mentors.map(mentor => mentor.studentLikes += 1);
+  return mentors
+}
+
+
+console.log(mentors)
+console.log(mentors[1].addSkill("ddd"))
+console.log(mentors[1])
+console.log(addSkill(mentors, "dldldl"))
+console.log(removeSkill(mentors, "dldldl"))
+console.log(mentorWithMoreSkills())
+console.log(mentors[1].addStudentLikes())
+console.log(addStudentLikes(mentors))

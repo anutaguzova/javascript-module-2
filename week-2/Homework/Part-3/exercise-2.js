@@ -8,6 +8,11 @@ let person = {
     name: "Alice",
     friends: ["John", "Nina"],
   };
+
+  person.makeFriend = function(name) {
+   person.friends.push(name);
+   return person.friends.join()
+  }
   
   /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
