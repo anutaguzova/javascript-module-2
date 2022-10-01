@@ -61,7 +61,36 @@ var movies = [
 // create showMovies function
 
 
+function showMovies() {
+  let content = document.querySelector("#all-movies");
+  let movieList = document.createElement("div");
+
+  movieList.innerHTML = movies.map(movie => `
+      <p>${movie.title} - ${movie.director}</p>
+      `).join("")
+
+  content.appendChild(movieList)
+
+  document.querySelector("#movies-number").innerText = movies.length;
+}
+
 // create a new movie object for your favorite movie
+let myMovie = {
+  title: "Titanic",
+  director: "James Cameron",
+  type: "romantic",
+  haveWatched: true,
+}
+
+// Task 2- create addMovies function
 
 
-// create addMovies function
+function addMovies(myMovie) {
+ movies.push(myMovie)
+ 
+}
+
+
+setTimeout( addMovies(myMovie), 2000);
+setTimeout(showMovies, 1000);
+
