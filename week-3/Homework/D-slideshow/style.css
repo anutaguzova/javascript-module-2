@@ -16,13 +16,13 @@
    margin: 10px;
 }
 
-.prev, .next {
-    width: 200px;
+.primary {
+    width: 180px;
     background-color: rgb(168, 191, 248);
     text-decoration: none;
     display: inline-block;
     color: white;
-    padding: 20px 30px;
+    padding: 20px 10px;
     margin: 10px 20px;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
@@ -31,7 +31,7 @@
     border: none;
 }
 
-.prev:hover, .next:hover {
+.primary:hover {
     cursor: pointer;
     background-color: rgb(157, 169, 200);
 }
