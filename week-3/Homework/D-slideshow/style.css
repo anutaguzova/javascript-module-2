@@ -1,1 +1,39 @@
 /** Write your CSS in here **/
+
+
+.slideshow-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.buttons {
+   text-align: center;
+   margin: 10px;
+}
+
+.prev, .next {
+    width: 200px;
+    background-color: rgb(168, 191, 248);
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    padding: 20px 30px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+}
+
+.prev:hover, .next:hover {
+    cursor: pointer;
+    background-color: rgb(157, 169, 200);
+}
+
+
