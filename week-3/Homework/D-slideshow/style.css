@@ -36,4 +36,21 @@
     background-color: rgb(157, 169, 200);
 }
 
+.number {
+    width: 50px;
+    background-color: rgb(236, 201, 228);
+    text-decoration: none;
+    color: white;
+    padding: 20px 10px;
+    margin: 10px 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    text-align: center;
+}
+
 

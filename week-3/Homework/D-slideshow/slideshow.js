@@ -7,8 +7,6 @@ function plusSlides(n) {
     showSlides(slideIndex += n)
 }
 
-
-
 function showSlides(n) {
     let slides = document.querySelectorAll(".mySlides");
 
@@ -24,18 +22,22 @@ function showSlides(n) {
     }
 
     slides[slideIndex - 1].style.display = "block";
-
+    document.querySelector(".number").innerText = slideIndex;
 }
 
-const nextGo =  () => plusSlides(1);
-const prevGo =  () => plusSlides(-1);
+let nextGo =  () => plusSlides(1);
+let prevGo =  () => plusSlides(-1);
 
 document.querySelector(".next").addEventListener("click", nextGo);
 document.querySelector(".prev").addEventListener("click", prevGo);
 
-const nextGoAuto = () => setInterval(nextGo, 1000);
-const prevGoAuto = () => setInterval(prevGo, 1000);
-  
+let nextGoAuto = () => setInterval(nextGo, 1000);
+let prevGoAuto = () => setInterval(prevGo, 1000);
+ 
+
 
 document.querySelector(".auto-forward").addEventListener("click", nextGoAuto);
 document.querySelector(".auto-backward").addEventListener("click", prevGoAuto);
+
+
+// document.querySelector(".stop").addEventListener("click", prevStop);
