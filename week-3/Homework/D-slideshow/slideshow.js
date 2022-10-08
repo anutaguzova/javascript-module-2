@@ -25,19 +25,17 @@ function showSlides(n) {
     document.querySelector(".number").innerText = slideIndex;
 }
 
-let nextGo =  () => plusSlides(1);
-let prevGo =  () => plusSlides(-1);
+let iterate = (direction) => plusSlides(direction);
 
-document.querySelector(".next").addEventListener("click", nextGo);
-document.querySelector(".prev").addEventListener("click", prevGo);
+document.querySelector(".next").addEventListener("click", iterate.bind(null, 1));
+document.querySelector(".prev").addEventListener("click", iterate.bind(null, -1));
 
-let nextGoAuto = () => setInterval(nextGo, 1000);
-let prevGoAuto = () => setInterval(prevGo, 1000);
+let autoId
+let iterateAuto = (direction) => autoId = setInterval(iterate, 1000, direction)
  
+document.querySelector(".auto-forward").addEventListener("click", iterateAuto.bind(null, 1));
+document.querySelector(".auto-backward").addEventListener("click", iterateAuto.bind(null, -1));
 
+let stopAuto = () => clearInterval(autoId);
 
-document.querySelector(".auto-forward").addEventListener("click", nextGoAuto);
-document.querySelector(".auto-backward").addEventListener("click", prevGoAuto);
-
-
-// document.querySelector(".stop").addEventListener("click", prevStop);
+document.querySelector(".stop").addEventListener("click", stopAuto);
