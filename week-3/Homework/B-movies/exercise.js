@@ -31,8 +31,8 @@ TIP: Use the functions you created on tasks 1-3
 
 ================
 */
-var movies = [
-  {
+
+var movies = [{
     title: "Color Out of Space",
     director: "Richard Stanley",
     type: "sci-fi",
@@ -58,39 +58,73 @@ var movies = [
   },
 ];
 
+
+
+let content = document.querySelector("#all-movies");
+let movieList = document.createElement("div");
+content.appendChild(movieList);
+
 // create showMovies function
-
-
 function showMovies() {
-  let content = document.querySelector("#all-movies");
-  let movieList = document.createElement("div");
-
-  movieList.innerHTML = movies.map(movie => `
+  setTimeout(() => {
+    movieList.innerHTML = movies.map(movie => `
       <p>${movie.title} - ${movie.director}</p>
       `).join("")
 
-  content.appendChild(movieList)
+    document.querySelector("#movies-number").innerText = movies.length;
+  }, 1000)
 
-  document.querySelector("#movies-number").innerText = movies.length;
 }
 
 // create a new movie object for your favorite movie
-let myMovie = {
-  title: "Titanic",
-  director: "James Cameron",
-  type: "romantic",
-  haveWatched: true,
-}
+// let myMovie = {
+//    title: "Titanic",
+//    director: "James Cameron",
+//    type: "romantic",
+//    haveWatched: true,
+// }
 
 // Task 2- create addMovies function
-
-
 function addMovies(myMovie) {
- movies.push(myMovie)
- 
+  setTimeout(() => {
+    movies.push(myMovie);
+    showMovies();
+  }, 2000)
+
 }
 
+showMovies();
 
-setTimeout( addMovies(myMovie), 2000);
-setTimeout(showMovies, 1000);
+//form 
+let form = document.querySelector("#movies-form");
+form.innerHTML = `
+<form>
+  <input type="text" id="title" name="fname" placeholder="title"><br>
+  <input type="text" id="director" name="lname" placeholder="director"><br>
+  <input type="text" id="type" name="fname" placeholder="type"><br>
+  <input type="text" id="haveWatched" name="lname" placeholder="haveWatched">
+  <input  class="button" type="button" value="Save">
+</form> `
 
+let titleProperty = document.querySelector("#title");
+let directorProperty = document.querySelector("#director");
+let typeProperty = document.querySelector("#type");
+let watchedProperty = document.querySelector("#haveWatched");
+
+
+document.querySelector(".button").addEventListener("click", () => {
+
+  let myMovie = {
+    title: titleProperty.value,
+    director: directorProperty.value,
+    type: typeProperty.value,
+    haveWatched: watchedProperty.value,
+  }
+
+  addMovies(myMovie);
+
+  titleProperty.value = ''
+  directorProperty.value = ''
+  typeProperty.value = ''
+  watchedProperty.value = ''
+})
